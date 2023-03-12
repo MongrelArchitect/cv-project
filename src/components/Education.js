@@ -26,6 +26,7 @@ export default class Education extends React.Component {
     this.changeDates = this.changeDates.bind(this);
     this.changeInfo = this.changeInfo.bind(this);
     this.delete = this.delete.bind(this);
+    this.addEdu = this.addEdu.bind(this);
   }
 
   getEduCopy() {
@@ -85,6 +86,19 @@ export default class Education extends React.Component {
     });
   }
 
+  addEdu() {
+    const tempEdu = this.getEduCopy();
+    tempEdu.unshift({
+      degree: '',
+      school: '',
+      dates: '',
+      info: '',
+    });
+    this.setState({
+      education: tempEdu,
+    });
+  }
+
   render() {
     const { mode } = this.props;
     const { education } = this.state;
@@ -94,7 +108,11 @@ export default class Education extends React.Component {
         <h2>Education:</h2>
         {mode === 'edit' ? (
           <div>
-            <button type="button"> + </button>
+            <button type="button" onClick={this.addEdu}>
+              {' '}
+              +
+              {' '}
+            </button>
             <hr />
           </div>
         ) : null}
