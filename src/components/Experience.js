@@ -26,6 +26,7 @@ export default class Experience extends React.Component {
     this.changeTitle = this.changeTitle.bind(this);
     this.changeDates = this.changeDates.bind(this);
     this.changeDuties = this.changeDuties.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   getExpCopy() {
@@ -77,6 +78,14 @@ export default class Experience extends React.Component {
     });
   }
 
+  delete(event) {
+    const tempExp = this.getExpCopy();
+    const { index } = event.target.dataset;
+    this.setState({
+      experience: tempExp.filter((exp) => tempExp.indexOf(exp) !== +index),
+    });
+  }
+
   render() {
     const { mode } = this.props;
     const { experience } = this.state;
@@ -120,6 +129,13 @@ export default class Experience extends React.Component {
                     onChange={this.changeDuties}
                   />
                 </p>
+                <button
+                  type="button"
+                  data-index={experience.indexOf(exp)}
+                  onClick={this.delete}
+                >
+                  DELETE
+                </button>
                 <hr />
               </div>
             );
