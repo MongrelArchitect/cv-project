@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './Info.module.css';
 
 export default class Info extends React.Component {
   constructor() {
@@ -39,22 +40,46 @@ export default class Info extends React.Component {
 
     return (
       <div>
-        <h2>Info:</h2>
+        {mode === 'edit' ? (<h2>Info:</h2>) : null}
         <p>
           {mode === 'edit' ? (
-            <input type="text" value={name} onChange={this.changeName} />
+            <label htmlFor="name">
+              Name:
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={this.changeName}
+              />
+            </label>
           ) : (
-            <span>{name}</span>
+            <span className={style.name}>{name}</span>
           )}
         </p>
-        <p>
+        <p className={mode === 'display' ? `${style.contact}` : null}>
           {mode === 'edit' ? (
-            <input type="email" value={email} onChange={this.changeEmail} />
+            <label htmlFor="email">
+              Email:
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={this.changeEmail}
+              />
+            </label>
           ) : (
             <span>{email}</span>
           )}
           {mode === 'edit' ? (
-            <input type="tel" value={phone} onChange={this.changePhone} />
+            <label htmlFor="phone">
+              Phone:
+              <input
+                id="phone"
+                type="tel"
+                value={phone}
+                onChange={this.changePhone}
+              />
+            </label>
           ) : (
             <span>{phone}</span>
           )}

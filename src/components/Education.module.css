@@ -1,0 +1,11 @@
+.education {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+  margin-top: 8px;
+  gap: 4px;
+}
+
+.education p:nth-child(4) {
+  font-style: italic;
+}

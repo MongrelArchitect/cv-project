@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './Education.module.css';
 
 export default class Education extends React.Component {
   constructor() {
@@ -7,16 +8,10 @@ export default class Education extends React.Component {
     this.state = {
       education: [
         {
-          degree: 'Degree Title',
-          school: 'School Name',
+          degree: 'BA - Music',
+          school: 'Desi Arnaz University',
           dates: '2005 - 2009',
-          info: 'Additional information',
-        },
-        {
-          degree: 'Some Certification',
-          school: 'Another School',
-          dates: '2011 - 20013',
-          info: 'Some more details about my cert',
+          info: 'Graduated with honors',
         },
       ],
     };
@@ -122,36 +117,53 @@ export default class Education extends React.Component {
             return (
               <div key={key}>
                 <h3>
-                  <input
-                    type="text"
-                    value={edu.degree}
-                    data-index={education.indexOf(edu)}
-                    onChange={this.changeDegree}
-                  />
+                  <label htmlFor="degree">
+                    Degree:
+                    <input
+                      id="degree"
+                      type="text"
+                      value={edu.degree}
+                      data-index={education.indexOf(edu)}
+                      onChange={this.changeDegree}
+                    />
+                  </label>
                 </h3>
                 <p>
-                  <input
-                    type="text"
-                    value={edu.school}
-                    data-index={education.indexOf(edu)}
-                    onChange={this.changeSchool}
-                  />
+                  <label htmlFor="school">
+                    School:
+                    <input
+                      id="school"
+                      type="text"
+                      value={edu.school}
+                      data-index={education.indexOf(edu)}
+                      onChange={this.changeSchool}
+                    />
+                  </label>
                 </p>
                 <p>
-                  <input
-                    type="text"
-                    value={edu.dates}
-                    data-index={education.indexOf(edu)}
-                    onChange={this.changeDates}
-                  />
+                  <label htmlFor="dates">
+                    Dates Attended:
+                    <input
+                      id="dates"
+                      type="text"
+                      value={edu.dates}
+                      data-index={education.indexOf(edu)}
+                      onChange={this.changeDates}
+                    />
+                  </label>
                 </p>
                 <p>
-                  <textarea
-                    value={edu.info}
-                    data-index={education.indexOf(edu)}
-                    onChange={this.changeInfo}
-                  />
+                  <label htmlFor="detail">
+                    Detail:
+                    <textarea
+                      id="detail"
+                      value={edu.info}
+                      data-index={education.indexOf(edu)}
+                      onChange={this.changeInfo}
+                    />
+                  </label>
                 </p>
+                <br />
                 <button
                   type="button"
                   data-index={education.indexOf(edu)}
@@ -165,7 +177,7 @@ export default class Education extends React.Component {
           }
 
           return (
-            <div key={key}>
+            <div key={key} className={style.education}>
               <h3>{edu.degree}</h3>
               <p>{edu.school}</p>
               <p>{edu.dates}</p>

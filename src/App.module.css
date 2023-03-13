@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #ccc;
+  font-family: "PT Sans", sans-serif;
+}
+
+label {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+h2 {
+  font-family: Ubuntu, sans-serif;
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+input, textarea {
+  font-size: 1rem;
+  font-family: "PT Sans", sans-serif;
+  padding: 4px;
+  max-width: 400px;
+}
+
+.container {
+  box-shadow: 0 0 5px #111;
+  display: grid;
+  gap: 18px;
+  margin: auto;
+  max-width: 1000px;
+  padding: 8px;
+  width: 100%;
+}
+
+.container > div {
+  display: grid;
+  gap: 8px;
+}
+
+.container > div button {
+  font-family: sans-serif;
+  max-width: 100px;
+  padding: 4px 8px 4px 8px;
+}
+
+.container.edit {
+  background: #c8fbf3;
+}
+
+.container.display {
+  background: #e9fefd;
+}

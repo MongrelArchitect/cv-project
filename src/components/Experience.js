@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './Experience.module.css';
 
 export default class Experience extends React.Component {
   constructor() {
@@ -7,16 +8,10 @@ export default class Experience extends React.Component {
     this.state = {
       experience: [
         {
-          company: 'Company Name',
-          title: 'Job Title',
+          company: 'Company, Inc.',
+          title: 'Head of Job Department',
           dates: '01/01/2010 - 12/12/2020',
-          duties: 'Job Duties',
-        },
-        {
-          company: 'Another Company',
-          title: 'Job Title',
-          dates: '02/03/2021 - 11/11/2022',
-          duties: 'Some Dutues',
+          duties: 'Handled all job related duties',
         },
       ],
     };
@@ -123,36 +118,53 @@ export default class Experience extends React.Component {
             return (
               <div key={key}>
                 <h3>
-                  <input
-                    type="text"
-                    value={exp.company}
-                    data-index={experience.indexOf(exp)}
-                    onChange={this.changeCompany}
-                  />
+                  <label htmlFor="company">
+                    Company:
+                    <input
+                      id="comapny"
+                      type="text"
+                      value={exp.company}
+                      data-index={experience.indexOf(exp)}
+                      onChange={this.changeCompany}
+                    />
+                  </label>
                 </h3>
                 <p>
-                  <input
-                    type="text"
-                    value={exp.title}
-                    data-index={experience.indexOf(exp)}
-                    onChange={this.changeTitle}
-                  />
+                  <label htmlFor="title">
+                    Title:
+                    <input
+                      id="title"
+                      type="text"
+                      value={exp.title}
+                      data-index={experience.indexOf(exp)}
+                      onChange={this.changeTitle}
+                    />
+                  </label>
                 </p>
                 <p>
-                  <input
-                    type="text"
-                    value={exp.dates}
-                    data-index={experience.indexOf(exp)}
-                    onChange={this.changeDates}
-                  />
+                  <label htmlFor="dates">
+                    Dates Employed:
+                    <input
+                      id="dates"
+                      type="text"
+                      value={exp.dates}
+                      data-index={experience.indexOf(exp)}
+                      onChange={this.changeDates}
+                    />
+                  </label>
                 </p>
                 <p>
-                  <textarea
-                    value={exp.duties}
-                    data-index={experience.indexOf(exp)}
-                    onChange={this.changeDuties}
-                  />
+                  <label htmlFor="duties">
+                    Duties:
+                    <textarea
+                      id="duties"
+                      value={exp.duties}
+                      data-index={experience.indexOf(exp)}
+                      onChange={this.changeDuties}
+                    />
+                  </label>
                 </p>
+                <br />
                 <button
                   type="button"
                   data-index={experience.indexOf(exp)}
@@ -166,7 +178,7 @@ export default class Experience extends React.Component {
           }
 
           return (
-            <div key={key}>
+            <div key={key} className={style.experience}>
               <h3>{exp.company}</h3>
               <p>{exp.title}</p>
               <p>{exp.dates}</p>

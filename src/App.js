@@ -3,6 +3,8 @@ import Mode from './components/Mode';
 import Info from './components/Info';
 import Education from './components/Education';
 import Experience from './components/Experience';
+import './reset.module.css';
+import style from './App.module.css';
 
 class App extends React.Component {
   constructor() {
@@ -32,7 +34,13 @@ class App extends React.Component {
     const { mode } = this.state;
 
     return (
-      <div>
+      <div
+        className={
+          mode === 'edit'
+            ? `${style.container} ${style.edit}`
+            : `${style.container} ${style.display}`
+        }
+      >
         <Mode mode={mode} changeMode={this.changeMode} />
         <Info mode={mode} />
         <Education mode={mode} />
