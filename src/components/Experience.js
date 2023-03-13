@@ -9,8 +9,8 @@ export default class Experience extends React.Component {
         {
           company: 'Company Name',
           title: 'Job Title',
-          duties: 'Job Duties',
           dates: '01/01/2010 - 12/12/2020',
+          duties: 'Job Duties',
         },
         {
           company: 'Another Company',
@@ -27,6 +27,7 @@ export default class Experience extends React.Component {
     this.changeDates = this.changeDates.bind(this);
     this.changeDuties = this.changeDuties.bind(this);
     this.delete = this.delete.bind(this);
+    this.addExp = this.addExp.bind(this);
   }
 
   getExpCopy() {
@@ -86,6 +87,19 @@ export default class Experience extends React.Component {
     });
   }
 
+  addExp() {
+    const tempExp = this.getExpCopy();
+    tempExp.unshift({
+      company: '',
+      title: '',
+      dates: '',
+      duties: '',
+    });
+    this.setState({
+      experience: tempExp,
+    });
+  }
+
   render() {
     const { mode } = this.props;
     const { experience } = this.state;
@@ -93,6 +107,16 @@ export default class Experience extends React.Component {
     return (
       <div>
         <h2>Experience:</h2>
+        {mode === 'edit' ? (
+          <div>
+            <button type="button" onClick={this.addExp}>
+              {' '}
+              +
+              {' '}
+            </button>
+            <hr />
+          </div>
+        ) : null}
         {experience.map((exp) => {
           const key = experience.indexOf(exp);
           if (mode === 'edit') {
